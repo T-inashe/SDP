@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>OpenLingua Courses & Community Dashboard</title>
+<style>
+  :root {
+    --red: #E03C31;
+    --green: #00A550;
+    --yellow: #FFCD00;
+    --black: #000000;
+    --white: #fff;
+  }
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0; padding: 0;
+    background: #f9f7f1;
+    color: var(--black);
+    line-height: 1.4;
+  }
+
+  header {
+    background-color: var(--black);
+    color: var(--white);
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .logo {
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: var(--yellow);
+  }
+
+  nav a {
+    margin-left: 1.5rem;
+    color: var(--white);
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  nav a:hover {
+    color: var(--yellow);
+  }
+
+  @media (max-width: 600px) {
+    nav a {
+      margin-left: 0.75rem;
+      font-size: 0.9rem;
+    }
+  }
+  
+  h2 {
+    margin-bottom: 0.5rem;
+    color: var(--red);
+  }
+  section {
+    max-width: 960px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+  }
+  /* --- Courses Page --- */
+  .courses-container {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  .filter-panel {
+    flex: 1 1 220px;
+    background: var(--green);
+    padding: 1rem;
+    border-radius: 10px;
+    color: var(--white);
+    min-width: 220px;
+    box-shadow: 0 4px 8px rgb(0 0 0 / 0.1);
+  }
+  .filter-panel h3 {
+    margin-top: 0;
+  }
+  .filter-panel select {
+    width: 100%;
+    margin-top: 1rem;
+    padding: 0.5rem;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+  }
+  .main-panel {
+    flex: 3 1 600px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(280px,1fr));
+    gap: 1rem;
+  }
+  .course-card {
+    background: var(--yellow);
+    border-radius: 12px;
+    padding: 1rem;
+    box-shadow: 0 3px 6px rgb(0 0 0 / 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .course-card img {
+    width: 100%;
+    height: 140px;
+    object-fit: cover;
+    border-radius: 10px;
+    background: var(--red);
+  }
+  .course-card h4 {
+    margin: 0;
+    color: var(--black);
+  }
+  .progress-bar {
+    background: var(--white);
+    height: 10px;
+    border-radius: 6px;
+    overflow: hidden;
+    margin-top: auto;
+    margin-bottom: 0.5rem;
+  }
+  .progress-bar-inner {
+    height: 100%;
+    background: var(--green);
+    width: 40%; /* example progress */
+    transition: width 0.3s ease;
+  }
+  button {
+    background: var(--black);
+    color: var(--white);
+    border: none;
+    border-radius: 8px;
+    padding: 0.6rem 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.25s ease;
+  }
+  button:hover {
+    background: var(--red);
+  }
+  /* --- Community Page --- */
+  .tabs {
+    max-width: 960px;
+    margin: 2rem auto 1rem;
+    display: flex;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 6px rgb(0 0 0 / 0.1);
+  }
+  .tab {
+    flex: 1;
+    text-align: center;
+    padding: 1rem;
+    background: var(--green);
+    color: var(--white);
+    font-weight: 700;
+    cursor: pointer;
+    user-select: none;
+    transition: background 0.3s ease;
+  }
+  .tab:not(:last-child) {
+    border-right: 2px solid var(--yellow);
+  }
+  .tab:hover {
+    background: var(--red);
+  }
+  .community-container {
+    max-width: 960px;
+    margin: 0 auto 3rem;
+    padding: 0 1rem;
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  .forum-topics {
+    flex: 2 1 600px;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .topic {
+    background: var(--yellow);
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 3px 6px rgb(0 0 0 / 0.1);
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  .topic:hover {
+    background: var(--red);
+    color: var(--white);
+  }
+  .sidebar {
+    flex: 1 1 280px;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .widget {
+    background: var(--red);
+    color: var(--white);
+    padding: 1rem;
+    border-radius: 10px;
+    font-weight: 700;
+    text-align: center;
+    box-shadow: 0 3px 6px rgb(0 0 0 / 0.1);
+  }
+
+  @media (max-width: 768px) {
+    .courses-container, .community-container {
+      flex-direction: column;
+    }
+    .filter-panel, .main-panel, .forum-topics, .sidebar {
+      flex: 1 1 100%;
+      min-width: auto;
+    }
+    .tabs {
+      flex-direction: column;
+    }
+    .tab {
+      border-right: none !important;
+      border-bottom: 2px solid var(--yellow);
+    }
+  }
+</style>
+</head>
+<body>
+    <header>
+        <div class="logo">OpenLingua</div>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">Languages</a>
+            <a href="#">Features</a>
+            <a href="#">Contact</a>
+        </nav>
+    </header>
+
+<section aria-label="Courses Page">
+  <h2>Courses</h2>
+  <div class="courses-container">
+    <aside class="filter-panel" aria-label="Filter Courses">
+      <h3>Filter</h3>
+      <select aria-label="Select Language">
+        <option selected>Choose Language</option>
+        <option>isiXhosa</option>
+        <option>Swahili</option>
+        <option>Xitsonga</option>
+        <option>Shona</option>
+      </select>
+      <select aria-label="Select Skill Level">
+        <option selected>Skill Level</option>
+        <option>Beginner</option>
+        <option>Intermediate</option>
+        <option>Fluent</option>
+      </select>
+      <select aria-label="Select Lesson Type">
+        <option selected>Lesson Type</option>
+        <option>Speaking</option>
+        <option>Listening</option>
+        <option>Cultural</option>
+      </select>
+    </aside>
+    <main class="main-panel" aria-label="Course List">
+      <article class="course-card">
+        <img src="https://via.placeholder.com/280x140?text=Course+Image" alt="Course thumbnail" />
+        <h4>Master isiXhosa Basics</h4>
+        <p>Learn basic greetings, phrases and cultural tips.</p>
+        <div class="progress-bar" aria-label="Progress: 40%">
+          <div class="progress-bar-inner" style="width:40%"></div>
+        </div>
+        <button>Start</button>
+      </article>
+      <article class="course-card">
+        <img src="https://via.placeholder.com/280x140?text=Course+Image" alt="Course thumbnail" />
+        <h4>Swahili for Travelers</h4>
+        <p>Essential words and phrases for everyday travel.</p>
+        <div class="progress-bar" aria-label="Progress: 70%">
+          <div class="progress-bar-inner" style="width:70%"></div>
+        </div>
+        <button>Continue</button>
+      </article>
+      <article class="course-card">
+        <img src="https://via.placeholder.com/280x140?text=Course+Image" alt="Course thumbnail" />
+        <h4>Xitsonga Culture & Speech</h4>
+        <p>Explore the rich traditions and language basics.</p>
+        <div class="progress-bar" aria-label="Progress: 10%">
+          <div class="progress-bar-inner" style="width:10%"></div>
+        </div>
+        <button>Start</button>
+      </article>
+    </main>
+  </div>
+</section>
+
+<section aria-label="Community Page">
+  <div class="tabs" role="tablist" aria-label="Community Tabs">
+    <div class="tab" role="tab" tabindex="0" aria-selected="true">Forums</div>
+    <div class="tab" role="tab" tabindex="-1" aria-selected="false">Language Exchange</div>
+    <div class="tab" role="tab" tabindex="-1" aria-selected="false">Events</div>
+  </div>
+  <div class="community-container">
+    <div class="forum-topics" role="tabpanel" tabindex="0" aria-label="Forum Topics">
+      <div class="topic" tabindex="0">Learn Yoruba with Songs</div>
+      <div class="topic" tabindex="0">isiZulu Slang of the Month</div>
+      <div class="topic" tabindex="0">Translation Help</div>
+    </div>
+    <aside class="sidebar" aria-label="Community Sidebar">
+      <div class="widget">Top Contributors</div>
+      <div class="widget">Upcoming Live Group Lesson</div>
+    </aside>
+  </div>
+</section>
+
+</body>
+</html>

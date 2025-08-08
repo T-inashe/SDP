@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OpenLingua | One Spirit. One Voice</title>
+    
+    <style>
+        :root {
+            --red: #e03c31;
+            --green: #007a33;
+            --yellow: #fcd116;
+            --black: #000000;
+            --white: #ffffff;
+            --gray: #f2f2f2;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: var(--gray);
+            color: var(--black);
+        }
+
+        header {
+            background-color: var(--black);
+            color: var(--white);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-weight: bold;
+            font-size: 1.5rem;
+            color: var(--yellow);
+        }
+
+        nav a {
+            margin-left: 1.5rem;
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .hero {
+            padding: 3rem 2rem;
+            background-color: var(--green);
+            color: var(--white);
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .hero button {
+            background-color: var(--yellow);
+            border: none;
+            padding: 0.75rem 1.5rem;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .features {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 2rem;
+            gap: 1rem;
+        }
+
+        .feature {
+            background-color: var(--white);
+            padding: 1.5rem;
+            width: 280px;
+            border-left: 5px solid var(--red);
+            border-radius: 5px;
+        }
+
+        .languages {
+            padding: 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1rem;
+        }
+
+        .language-card {
+            background-color: var(--white);
+            border-left: 5px solid var(--green);
+            padding: 1rem;
+            border-radius: 5px;
+        }
+
+        footer {
+            background-color: var(--black);
+            color: var(--white);
+            text-align: center;
+            padding: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        @media (max-width: 600px) {
+            nav a {
+                margin-left: 0.75rem;
+                font-size: 0.9rem;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+        }
+                .hero {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 3rem 2rem;
+            background-color: var(--green);
+            color: var(--white);
+            gap: 2rem;
+        }
+
+        .hero-image img {
+            max-width: 350px;
+            border-radius: 10px;
+            object-fit: cover;
+            border: 4px solid var(--yellow);
+        }
+
+        .hero-text {
+            max-width: 500px;
+        }
+
+        .hero-text h1 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero-text p {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-text button {
+            background-color: var(--yellow);
+            border: none;
+            padding: 0.75rem 1.5rem;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .hero-image img {
+                max-width: 100%;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">OpenLingua</div>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">Languages</a>
+            <a href="#">Features</a>
+            <a href="#">Contact</a>
+        </nav>
+    </header>
+
+   <section class="hero">
+    <div class="hero-image">
+        <img src="your-image.jpg" alt="Our Image Thumbnail">
+    </div>
+    <div class="hero-text">
+        <h1>OpenLingua – One Spirit. One Voice</h1>
+        <p>OpenLingua is your gateway to mastering isiXhosa, Swahili, Xitsonga and Shona – rooted in culture, spoken from the heart.</p>
+        <button>Get Started</button>
+    </div>
+</section>
+
+
+    <section class="features">
+        <div class="feature">
+            <h3>Community Driven</h3>
+            <p>Learn from native speakers and passionate educators from across Africa.</p>
+        </div>
+        <div class="feature">
+            <h3>Cultural Context</h3>
+            <p>Lessons enriched with proverbs, idioms, and traditional wisdom.</p>
+        </div>
+        <div class="feature">
+            <h3>Progress Tracking</h3>
+            <p>Stay motivated with streaks, badges, and progress milestones.</p>
+        </div>
+    </section>
+
+    <section class="languages">
+        <div class="language-card">
+            <h4>isiXhosa</h4>
+            <p>Master the clicks and the culture in one smooth journey.</p>
+        </div>
+        <div class="language-card">
+            <h4>Swahili</h4>
+            <p>From "Jambo" to fluent conversations - spoken by millions.</p>
+        </div>
+        <div class="language-card">
+            <h4>Xitsonga</h4>
+            <p>Rhythmic, expressive, and full of heritage.</p>
+        </div>
+        <div class="language-card">
+            <h4>Shona</h4>
+            <p>Learn a language that sings history and unity.</p>
+        </div>
+    </section>
+
+    <footer>
+        &copy; 2025 OpenLingua. Built with love and pride in Africa.
+    </footer>
+
+</body>
+</html>
