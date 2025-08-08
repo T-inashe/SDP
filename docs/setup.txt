@@ -14,7 +14,6 @@ Quick Start Checklist ✅(make sure you have done everything below before you co
 
 Step 1: Clone the Repository
 git clone https://github.com/T-inashe/SDP.git
-cd language-learning-platform
 
 # Verify project structure
 - You should have have the following folders/files: backend, frontend, docs and README.md
@@ -137,3 +136,4 @@ Code Questions: Review the main setup guide in /docs/ or ask in group
 
 We not settling for anything less than 100% this time around commrades 
 Happy coding! 🚀
+
